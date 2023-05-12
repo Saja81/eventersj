@@ -1,10 +1,13 @@
+import SearchField from "../Components/SearchField";
+
 function ListView() {
   return (
-    <div className="App">
+    <main>
+      <SearchField />
       <header className="App-header">
         <p>Eventlistan</p>
       </header>
-    </div>
+    </main>
   );
 }
 

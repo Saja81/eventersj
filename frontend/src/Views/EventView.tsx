@@ -1,10 +1,10 @@
 function EventView() {
   return (
-    <div className="App">
+    <main>
       <header className="App-header">
         <p>Nu kör vi!</p>
       </header>
-    </div>
+    </main>
   );
 }
 
