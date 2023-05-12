@@ -1,17 +1,5 @@
 import express, { Application, Request, Response, NextFunction } from "express";
-// import mongoose from 'mongoose';
-// import {
-//   MongooseConnect,
-//   User,
-//   Work,
-//   About,
-//   Contact,
-//   Blog,
-// } from './interfaces';
-// import { addWork, addAbout, addBlog } from './data';
-// import path from 'path';
 import cors from "cors";
-// import moment from 'moment';
 
 const app: Application = express();
 

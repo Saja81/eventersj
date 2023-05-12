@@ -13,19 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-// import mongoose from 'mongoose';
-// import {
-//   MongooseConnect,
-//   User,
-//   Work,
-//   About,
-//   Contact,
-//   Blog,
-// } from './interfaces';
-// import { addWork, addAbout, addBlog } from './data';
-// import path from 'path';
 const cors_1 = __importDefault(require("cors"));
-// import moment from 'moment';
 const app = (0, express_1.default)();
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use(express_1.default.json());
