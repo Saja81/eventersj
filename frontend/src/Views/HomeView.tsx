@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { Result } from "../useFetch";
 import EventCard from "../Components/EventCard";
 import PrimaryButton from "../Components/PrimaryButton";
 import SecondaryButton from "../Components/SecondaryButton";
@@ -13,6 +15,17 @@ import {
 } from "react-bootstrap-icons";
 
 function HomeView() {
+  const [result, setResult] = useState<Result[]>([]);
+  // const result: Result | null = useFetch();
+
+  useEffect(() => {
+    fetch("http://localhost:8080/")
+      .then((response) => response.json())
+      .then((result) => {
+        setResult(result);
+      });
+  }, []);
+
   return (
     <main>
       <header className="App-header">
@@ -36,11 +49,14 @@ function HomeView() {
         <div>
           <p>eventcards:</p>
           <div className="event-div-test">
+            {result.map((event) => (
+              <EventCard eventprop={event} />
+            ))}
+
+            {/* <EventCard />
             <EventCard />
             <EventCard />
-            <EventCard />
-            <EventCard />
-            <EventCard />
+            <EventCard /> */}
           </div>
         </div>
         <p>Ikoner:</p>

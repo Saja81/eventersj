@@ -31,6 +31,23 @@ app.get(
   }
 );
 
+app.get(
+  "/events/:eventId",
+  async (request: Request, response: Response, next: NextFunction) => {
+    const { rows } = await client.query(
+      "SELECT * FROM events WHERE id_name = $1",
+      [request.params.eventId]
+    );
+
+    if (rows.length === 0) {
+      response.status(404).end();
+    } else {
+      const event = rows[0];
+      response.status(200).send(event);
+    }
+  }
+);
+
 app.listen(8080, () => {
   console.log("Redo på http://localhost:8080/");
 });
