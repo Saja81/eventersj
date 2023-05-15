@@ -3,23 +3,23 @@ DROP TABLE IF EXISTS museums;
 DROP TABLE IF EXISTS activities;
 
  CREATE TABLE events (
-  id INTEGER PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name TEXT UNIQUE NOT NULL,
   description TEXT NOT NULL,
-  arena TEXT NOT NULL,
-  adress TEXT NOT NULL,
+  location TEXT NOT NULL,
+  address TEXT NOT NULL,
   city TEXT NOT NULL,
   cost TEXT,
   link TEXT,
-  start TEXT NOT NULL,
-  end TEXT);
+  first TEXT NOT NULL,
+  last TEXT);
 
-  INSERT INTO events (name, arena, adress, city, start, end) VALUES ('Laleh', 'Ullevi', 'En adress', 'Göteborg', '2023-06-05', '2023-06-07');
+  INSERT INTO events (name, description, location, address, city, first, last) VALUES ('Laleh', 'Världsartisen Laleh är tillbaka, bla bla', 'Ullevi', 'En adress', 'Göteborg', '2023-06-05', '2023-06-07');
 
   -- INSERT INTO accounts (email, password) VALUES ('klara@hotmail.com', 'secret');
 
  CREATE TABLE museums (
-  id INTEGER PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
   description TEXT NOT NULL,
   adress TEXT NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE openhours (
 );
 
 CREATE TABLE activities (
-  id INTEGER PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
   description TEXT NOT NULL,
   adress TEXT NOT NULL,
