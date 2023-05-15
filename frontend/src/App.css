@@ -1,3 +1,11 @@
+@font-face {
+  font-family: Fontname;
+  src: url("Fonts/holligate-signature-demo/holligate-signature-demo.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .App {
   text-align: center;
 }
@@ -13,6 +21,32 @@
   }
 }
 
+.gradient {
+  background: linear-gradient(
+    to right,
+    rgba(239, 118, 87, 1),
+    rgba(255, 168, 123, 0.8134),
+    rgba(251, 46, 95, 0.41)
+  );
+}
+
+.container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Nav-bar {
+  display: flex;
+  justify-content: center;
+}
+
+.NavBar-links {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 16px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -22,6 +56,44 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.hamburger {
+  display: block;
+  width: 25px;
+  height: 25px;
+  background-color: #ceb6b6;
+  margin-bottom: 5px;
+}
+
+#menu {
+  display: none;
+}
+
+.Container-logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#logo {
+  font-family: "Fontname";
+  font-size: 35px;
+  color: #ffffff;
+}
+
+#menu.open {
+  display: block;
+  background-color: #e06943;
+  border: solid;
+  border-color: #e06943;
+  border-radius: 4%;
+  width: 20%;
+  margin-bottom: 10px;
+}
+
+li {
+  list-style: none;
 }
 
 .App-link {
