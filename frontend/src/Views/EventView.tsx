@@ -32,11 +32,13 @@ function EventView() {
           <div className="EventView-image-container">
             <img className="EventView-image" src={image} alt="bild" />
           </div>
-          <h2>{event.name}</h2>
-          <p>{event.description}</p>
-          <p>{event.category}</p>
-          <p>{event.location}</p>
-          <PrimaryButton>Boka biljetter</PrimaryButton>
+          <div className="main-divs">
+            <h2>{event.name}</h2>
+            <p>{event.description}</p>
+            <p>{event.category}</p>
+            <p>{event.location}</p>
+            <PrimaryButton>Boka biljetter</PrimaryButton>
+          </div>
         </div>
       )}
     </main>

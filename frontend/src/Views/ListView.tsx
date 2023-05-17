@@ -1,12 +1,18 @@
+import BigEventCard from "../Components/BigEventCard";
 import SearchField from "../Components/SearchField";
+import { SomeContext } from "../SomeContext";
+import { useContext } from "react";
 
 function ListView() {
+  const eventResult = useContext(SomeContext)?.eventResult;
   return (
-    <main>
+    <main className="main-divs">
       <SearchField />
-      <header className="App-header">
-        <p>Eventlistan</p>
-      </header>
+      <div className="ListView-grid">
+        {eventResult?.map((event) => (
+          <BigEventCard eventprop={event}></BigEventCard>
+        ))}
+      </div>
     </main>
   );
 }

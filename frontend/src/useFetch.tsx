@@ -11,14 +11,15 @@ export interface Result {
   city: string;
   cost: string;
   link: string;
-  first: string;
-  last: string;
+  date: string;
+  image: string;
+  location_image: string;
 }
 
-export function useFetch(): Result | null {
-  const [result, setResult] = useState<Result | null>(null);
+export function useFetchEvents(): Result[] | [] {
+  const [result, setResult] = useState<Result[] | []>([]);
   useEffect(() => {
-    fetch("http://localhost:8080/")
+    fetch("http://localhost:8080/events")
       .then((response) => response.json())
       .then((result) => {
         setResult(result);

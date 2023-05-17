@@ -50,6 +50,10 @@ p {
   border: 1px solid $rust !important;
 }
 
+.main-divs {
+  padding: 16px;
+}
+
 .HomeView-image-div {
   display: flex;
   justify-content: center;
@@ -71,8 +75,14 @@ p {
   padding: 0;
   gap: 10px;
   width: 129px;
-  height: 150px;
-  margin: 10px;
+  height: 165px;
+  margin-right: 16px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.EventCard-div:hover {
+  color: inherit;
 }
 
 .EventCard-description > h3,
@@ -92,6 +102,8 @@ p {
 .EventCard-image-wrapper {
   overflow: hidden;
   border-radius: inherit;
+  width: 100%;
+  height: 100%;
 }
 
 .EventCard-gratis-div {
@@ -114,7 +126,7 @@ p {
   object-fit: contain;
 }
 
-.event-div-test {
+.event-div {
   width: 375px;
   display: flex;
   flex-direction: row;
@@ -122,6 +134,45 @@ p {
   overflow-x: scroll;
   overflow-y: hidden;
 }
+
+.BigEventCard-div {
+  gap: 16px;
+  width: 171px;
+  height: 205px;
+  margin-right: 0;
+}
+
+.BigEventCard-image-div {
+  width: 171px;
+  height: 146px;
+}
+
+/* Titel till stor biled event */
+
+// width: 171px;
+// height: 43px;
+
+// /* Inside auto layout */
+// flex: none;
+// order: 1;
+// flex-grow: 0;
+
+// /* Titel Kategori */
+
+// position: absolute;
+// left: 0%;
+// right: 0%;
+// top: 0%;
+// bottom: 0%;
+
+// /* P, Body Text */
+// font-family: "Helvetica";
+// font-style: normal;
+// font-weight: 700;
+// font-size: 16px;
+// line-height: 18px;
+
+// color: #000000;
 
 .SearchField-form {
   position: relative;
@@ -159,6 +210,12 @@ p {
   width: 100%;
   // aspect-ratio: 1/1;
   object-fit: contain;
+}
+
+.ListView-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
 }
 
 /* Inside auto layout */
