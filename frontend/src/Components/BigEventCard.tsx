@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import image from "../camille-minouflet-d7M5Xramf8g-unsplash.jpg";
 import { Result } from "../useFetch";
 import { Link } from "react-router-dom";
 
@@ -19,7 +18,11 @@ function EventCard(props: EventProps) {
     >
       <div className="EventCard-image-div BigEventCard-image-div">
         <div className="EventCard-image-wrapper">
-          <img className="EventCard-image" src={image} alt="test" />
+          <img
+            className="EventCard-image"
+            src={props.eventprop.image}
+            alt="test"
+          />
         </div>
       </div>
       <div className="EventCard-description">

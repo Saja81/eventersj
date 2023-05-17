@@ -5,11 +5,12 @@ import HomeView from "../src/Views/HomeView";
 import ListView from "./Views/ListView";
 import EventView from "./Views/EventView";
 import { useFetchEvents, Result } from "./useFetch";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { SomeContext } from "./SomeContext";
 
 function App() {
-  const eventResult: Result[] | [] = useFetchEvents();
+  const eventResult: Result[] | [] = useFetchEvents(),
+    [filteredEvents, setFilteredEvents] = useState<Result[]>([]);
 
   const concerts = useMemo(() => {
     if (eventResult) {
@@ -53,6 +54,8 @@ function App() {
         museums,
         activities,
         eventResult,
+        filteredEvents,
+        setFilteredEvents,
       }}
     >
       <RouterProvider router={router} />

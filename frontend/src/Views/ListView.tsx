@@ -1,15 +1,32 @@
 import BigEventCard from "../Components/BigEventCard";
 import SearchField from "../Components/SearchField";
 import { SomeContext } from "../SomeContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 function ListView() {
-  const eventResult = useContext(SomeContext)?.eventResult;
+  const eventResult = useContext(SomeContext)?.eventResult,
+    filteredEvents = useContext(SomeContext)?.filteredEvents,
+    setFilteredEvents = useContext(SomeContext)?.setFilteredEvents;
+
+  useEffect(() => {
+    console.log(filteredEvents);
+    console.log(eventResult);
+    if (filteredEvents) {
+      if (filteredEvents?.length < 1 && eventResult) {
+        setFilteredEvents?.(eventResult);
+      }
+    }
+  }, [filteredEvents, eventResult]);
+
+  useEffect(() => {
+    console.log(filteredEvents);
+  }, [filteredEvents]);
+
   return (
     <main className="main-divs">
       <SearchField />
       <div className="ListView-grid">
-        {eventResult?.map((event) => (
+        {filteredEvents?.map((event) => (
           <BigEventCard eventprop={event}></BigEventCard>
         ))}
       </div>

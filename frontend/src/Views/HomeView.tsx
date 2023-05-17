@@ -6,11 +6,11 @@ import { SomeContext } from "../SomeContext";
 import {
   Clock,
   ChevronRight,
-  Instagram,
-  Twitter,
-  Facebook,
-  Youtube,
-  Tiktok,
+  // Instagram,
+  // Twitter,
+  // Facebook,
+  // Youtube,
+  // Tiktok,
   GeoAltFill,
 } from "react-bootstrap-icons";
 

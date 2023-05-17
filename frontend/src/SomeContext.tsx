@@ -6,8 +6,11 @@ export interface SomeContextValue {
   museums?: Result[];
   activities?: Result[];
   eventResult?: Result[];
+  filteredEvents?: Result[];
+  setFilteredEvents?: SetFilteredEventsFunction;
 }
 
+type SetFilteredEventsFunction = React.Dispatch<React.SetStateAction<Result[]>>;
 // type SetBlogFunction = React.Dispatch<React.SetStateAction<Blog[]>>;
 // type SetThemeFunction = (newValue: string) => void;
 // type SetLoggedInFunction = (newValue: boolean) => void;
