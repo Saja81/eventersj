@@ -8,16 +8,20 @@ import SecondaryButton from "./SecondaryButton";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLogoVisible, setIsLogoVisible] = useState(true);
+  const [isButtonVisible, setIsButtonVisible] = useState(true);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+    setIsLogoVisible(isOpen);
+    setIsButtonVisible(isOpen);
   };
   return (
     <Container>
-      <Row>
+      <Row id="headerrow">
         <Col>
           <div className="containerlogo">
-            <p id="logo">Eventer</p>
+            {isLogoVisible && <p id="logo1">Eventer</p>}
           </div>
         </Col>
 
@@ -30,12 +34,13 @@ const HamburgerMenu = () => {
                     <p id="logo">Eventer</p>
                   </div>
                 </Col>
+
                 <Col>
                   <button
                     id="HamburgerButton"
                     aria-expanded={isOpen}
                     onClick={toggleMenu}
-                    className={`hamburger ${isOpen ? "open" : ""}`}
+                    className={`hamburger1 ${isOpen ? "open" : ""}`}
                   >
                     <span className="line"></span>
                     <span className="line"></span>
@@ -44,8 +49,8 @@ const HamburgerMenu = () => {
                   </button>
                 </Col>
               </Row>
-              <Row>
-                <ul className="NavBar-list">
+              <Row className="NavBar-list">
+                <ul>
                   <SearchField />
 
                   <li>
@@ -70,20 +75,22 @@ const HamburgerMenu = () => {
             </nav>
           </div>
         </Col>
-        <Col>
-          <div className="containerbutton">
+        <Col className="containerbutton">
+          {/* <div> */}
+          {isButtonVisible && (
             <button
               id="HamburgerButton"
               aria-expanded={isOpen}
               onClick={toggleMenu}
-              className={`hamburger ${isOpen ? "open" : ""}`}
+              className={`hamburger2 ${isOpen ? "open" : ""}`}
             >
               <span className="line"></span>
               <span className="line"></span>
               <span className="line"></span>
               <span className="line"></span>
             </button>
-          </div>
+          )}
+          {/* </div> */}
         </Col>
       </Row>
     </Container>
