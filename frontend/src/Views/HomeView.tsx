@@ -46,11 +46,11 @@ function HomeView() {
         <p>Ikoner:</p>
         <Clock />
         <ChevronRight />
-        <Instagram />
+        {/* <Instagram />
         <Facebook />
         <Twitter />
         <Youtube />
-        <Tiktok />
+        <Tiktok /> */}
         <GeoAltFill />
       </header>
     </main>
