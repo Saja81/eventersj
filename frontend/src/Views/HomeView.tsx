@@ -1,6 +1,8 @@
+import { useEffect, useContext } from "react";
 import EventCard from "../Components/EventCard";
 import PrimaryButton from "../Components/PrimaryButton";
 import SecondaryButton from "../Components/SecondaryButton";
+import { SomeContext } from "../SomeContext";
 import {
   Clock,
   ChevronRight,
@@ -13,12 +15,20 @@ import {
 } from "react-bootstrap-icons";
 
 function HomeView() {
+  const concerts = useContext(SomeContext)?.concerts,
+    museums = useContext(SomeContext)?.museums,
+    activities = useContext(SomeContext)?.activities;
+
+  useEffect(() => {
+    console.log(concerts);
+  }, [concerts]);
+
   return (
     <main>
-      <header className="App-header">
-        <div className="HomeView-image-div">
-          <h1>Vad vill du göra ikväll?</h1>
-        </div>
+      <div className="HomeView-image-div">
+        <h1>Vad vill du göra ikväll?</h1>
+      </div>
+      <div className="main-divs">
         <h2>Aktivitetskalendern nära dig</h2>
         <p>
           Vill du cykla, nätverka eller gå på konsert? Vi samlar alla olika
@@ -34,14 +44,36 @@ function HomeView() {
           <SecondaryButton>Logga in</SecondaryButton>
         </div>
         <div>
-          <p>eventcards:</p>
-          <div className="event-div-test">
-            <EventCard />
-            <EventCard />
-            <EventCard />
-            <EventCard />
-            <EventCard />
-          </div>
+          {concerts && concerts !== undefined && (
+            <div>
+              <h2>Konserter</h2>
+              <div className="event-div event-div-museum">
+                {concerts.map((event) => (
+                  <EventCard eventprop={event} />
+                ))}
+              </div>
+            </div>
+          )}
+          {museums && museums !== undefined && (
+            <div>
+              <h2>Museum</h2>
+              <div className="event-div event-div-museum">
+                {museums.map((event) => (
+                  <EventCard eventprop={event} />
+                ))}
+              </div>
+            </div>
+          )}
+          {activities && activities !== undefined && (
+            <div>
+              <h2>Friluftsliv</h2>
+              <div className="event-div event-div-museum">
+                {activities.map((event) => (
+                  <EventCard eventprop={event} />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
         <p>Ikoner:</p>
         <Clock />
@@ -52,7 +84,7 @@ function HomeView() {
         <Youtube />
         <Tiktok /> */}
         <GeoAltFill />
-      </header>
+      </div>
     </main>
   );
 }

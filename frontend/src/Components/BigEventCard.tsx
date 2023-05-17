@@ -13,16 +13,14 @@ function EventCard(props: EventProps) {
   }, [props.eventprop]);
 
   return (
-    <Link to={props.eventprop.id_name} className="EventCard-div">
-      <div className="EventCard-image-div">
+    <Link
+      to={props.eventprop.id_name}
+      className="EventCard-div BigEventCard-div"
+    >
+      <div className="EventCard-image-div BigEventCard-image-div">
         <div className="EventCard-image-wrapper">
           <img className="EventCard-image" src={image} alt="test" />
         </div>
-        {props.eventprop.cost === null && (
-          <div className="EventCard-gratis-div">
-            <p>Gratis</p>
-          </div>
-        )}
       </div>
       <div className="EventCard-description">
         <h3>{props.eventprop.name}</h3>
