@@ -62,13 +62,13 @@ function Footer() {
         </Row>
         <Row>
           <Col>
-            <img src="../Axs_logo.png" alt="Axs Logo"></img>
+            <img src="../Axs_logo.png" alt="Axs"></img>
           </Col>
           <Col>
-            <img src="../Ticketmaster-Logo.png" alt="Ticketmaster Logo"></img>
+            <img src="../Ticketmaster-Logo.png" alt="Ticketmaster"></img>
           </Col>
           <Col>
-            <img src="../Axs_logo.png" alt="Göteborg Logo"></img>
+            <img src="../Axs_logo.png" alt="Göteborg Stad"></img>
           </Col>
         </Row>
       </Container>
