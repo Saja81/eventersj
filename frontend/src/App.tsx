@@ -41,7 +41,7 @@ function App() {
       children: [
         { element: <HomeView />, path: "/" },
         { element: <ListView />, path: "/eventlist" },
-        { element: <EventView />, path: "/:eventId" },
+        { element: <EventView />, path: "/eventlist/:eventId" },
       ],
       element: <Root />,
     },

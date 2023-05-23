@@ -8,12 +8,12 @@ export interface Result {
   category: string;
   location: string;
   adress: string;
-  city: string;
   cost: string;
   link: string;
   date: string;
   image: string;
   location_image: string;
+  openhours: string;
 }
 
 export function useFetchEvents(): Result[] | [] {

@@ -16,7 +16,7 @@ function ListView() {
         setFilteredEvents?.(eventResult);
       }
     }
-  }, [filteredEvents, eventResult]);
+  }, [filteredEvents, eventResult, setFilteredEvents]);
 
   useEffect(() => {
     console.log(filteredEvents);

@@ -56,7 +56,7 @@ p {
 }
 
 .Bootstrap-clock {
-  width: 36px;
+  width: 43px;
   height: 36px;
   color: #575757;
   margin-right: 24px;
@@ -131,7 +131,8 @@ p {
 
 .EventCard-image {
   width: 100%;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
 }
 
 .event-div {
@@ -212,6 +213,7 @@ p {
   width: 100%;
   display: flex;
   align-items: flex-start;
+  position: relative;
 }
 
 .EventView-image {
@@ -220,11 +222,29 @@ p {
   object-fit: contain;
 }
 
+.EventView-gratis-div {
+  background-color: $black;
+  color: $white;
+  padding: 4px 10px;
+  border-radius: 10px 0 0 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 .EventView-divs {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-top: 24px;
+}
+
+.EventView-openhours-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 // .EventView-location-div {

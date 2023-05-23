@@ -27,11 +27,7 @@ function EventCard(props: EventProps) {
       </div>
       <div className="EventCard-description">
         <h3>{props.eventprop.name}</h3>
-        {props.eventprop.category === "Konsert" ? (
-          <p>{props.eventprop.location}</p>
-        ) : (
-          <p>{props.eventprop.city}</p>
-        )}
+        <p>{props.eventprop.category}</p>
       </div>
     </Link>
   );

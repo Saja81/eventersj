@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Result } from "../useFetch";
 import { Link } from "react-router-dom";
 
@@ -7,12 +7,19 @@ type EventProps = {
 };
 
 function EventCard(props: EventProps) {
+  const [route, setRoute] = useState("/eventlist/" + props.eventprop.id_name);
   useEffect(() => {
     console.log(props.eventprop);
   }, [props.eventprop]);
 
+  useEffect(() => {
+    setRoute("/eventlist/" + props.eventprop.id_name);
+  }, [props.eventprop.id_name]);
+
+  // Länk till event funkar inte!!
+
   return (
-    <Link to={props.eventprop.id_name} className="EventCard-div">
+    <Link to={route} className="EventCard-div">
       <div className="EventCard-image-div">
         <div className="EventCard-image-wrapper">
           <img
@@ -29,11 +36,7 @@ function EventCard(props: EventProps) {
       </div>
       <div className="EventCard-description">
         <h3>{props.eventprop.name}</h3>
-        {props.eventprop.category === "Konsert" ? (
-          <p>{props.eventprop.location}</p>
-        ) : (
-          <p>{props.eventprop.city}</p>
-        )}
+        <p>{props.eventprop.category}</p>
       </div>
     </Link>
   );
