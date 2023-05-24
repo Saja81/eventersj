@@ -12,6 +12,7 @@ $theme-colors: (
 body {
   font-family: Helvetica, sans-serif;
   color: $black;
+  background-color: white !important;
 }
 
 h1 {
@@ -33,6 +34,11 @@ p {
   margin-bottom: 0 !important;
 }
 
+a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
 .button {
   width: 350px !important;
   height: 50px !important;
@@ -46,7 +52,16 @@ p {
   color: $white !important;
 }
 
+.primary-button:hover {
+  background-color: #cb5a36 !important;
+}
+
+.secondary-button:hover {
+  background-color: #eeeeee !important;
+}
+
 .secondary-button {
+  background-color: inherit !important;
   color: $rust !important;
   border: 1px solid $rust !important;
 }
@@ -55,7 +70,7 @@ p {
   padding: 16px;
 }
 
-.Bootstrap-clock {
+.Bootstrap-icons {
   width: 43px;
   height: 36px;
   color: #575757;
@@ -83,14 +98,8 @@ p {
   padding: 0;
   gap: 10px;
   width: 129px;
-  height: 165px;
+  height: 185px;
   margin-right: 16px;
-  text-decoration: none;
-  color: inherit;
-}
-
-.EventCard-div:hover {
-  color: inherit;
 }
 
 .EventCard-description > h3,
@@ -188,15 +197,16 @@ p {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px 16px;
-  width: 90%;
+  // padding: 0px 16px;
+  width: 311px;
   height: 56px;
   margin: auto;
 }
 
 .SearchField-input {
   width: 100%;
-  background: #dbdbdb;
+  height: 80%;
+  background: $white;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   outline: none;
@@ -206,7 +216,7 @@ p {
 
 .SearchField-icon {
   position: absolute;
-  left: 30px;
+  left: 15px;
 }
 
 .EventView-image-container {

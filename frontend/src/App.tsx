@@ -42,6 +42,7 @@ function App() {
         { element: <HomeView />, path: "/" },
         { element: <ListView />, path: "/eventlist" },
         { element: <EventView />, path: "/eventlist/:eventId" },
+        // { element: <LoginView />, path: "/login" },
       ],
       element: <Root />,
     },

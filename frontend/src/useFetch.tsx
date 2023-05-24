@@ -7,6 +7,7 @@ export interface Result {
   description: string;
   category: string;
   location: string;
+  city: string;
   adress: string;
   cost: string;
   link: string;

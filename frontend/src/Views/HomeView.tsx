@@ -3,16 +3,16 @@ import EventCard from "../Components/EventCard";
 import PrimaryButton from "../Components/PrimaryButton";
 import SecondaryButton from "../Components/SecondaryButton";
 import { SomeContext } from "../SomeContext";
-import {
-  Clock,
-  ChevronRight,
-  // Instagram,
-  // Twitter,
-  // Facebook,
-  // Youtube,
-  // Tiktok,
-  GeoAltFill,
-} from "react-bootstrap-icons";
+// import {
+//   // Instagram,
+//   // Twitter,
+//   // Facebook,
+//   // Youtube,
+//   // Tiktok,
+//   // GeoAltFill,
+// } from "react-bootstrap-icons";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 function HomeView() {
   const concerts = useContext(SomeContext)?.concerts,
@@ -35,58 +35,58 @@ function HomeView() {
           evenemang på en och samma plats så att du enkelt kan hitta något som
           passar dig.
         </p>
-        <div>
-          <p>primary:</p>
-          <PrimaryButton>Upptäck alla event</PrimaryButton>
-        </div>
-        <div>
-          <p>secondary:</p>
-          <SecondaryButton>Logga in</SecondaryButton>
-        </div>
+
+        <PrimaryButton>
+          <Link to="/eventlist">Upptäck alla event</Link>
+        </PrimaryButton>
+
+        <SecondaryButton>Logga in</SecondaryButton>
+
         <div>
           {concerts && concerts !== undefined && (
-            <div>
+            <CategoryDivs>
               <h2>Konserter</h2>
               <div className="event-div event-div-museum">
                 {concerts.map((event) => (
                   <EventCard eventprop={event} />
                 ))}
               </div>
-            </div>
+            </CategoryDivs>
           )}
           {museums && museums !== undefined && (
-            <div>
+            <CategoryDivs>
               <h2>Museum</h2>
               <div className="event-div event-div-museum">
                 {museums.map((event) => (
                   <EventCard eventprop={event} />
                 ))}
               </div>
-            </div>
+            </CategoryDivs>
           )}
           {activities && activities !== undefined && (
-            <div>
+            <CategoryDivs>
               <h2>Friluftsliv</h2>
               <div className="event-div event-div-museum">
                 {activities.map((event) => (
                   <EventCard eventprop={event} />
                 ))}
               </div>
-            </div>
+            </CategoryDivs>
           )}
         </div>
-        <p>Ikoner:</p>
-        <Clock />
-        <ChevronRight />
         {/* <Instagram />
         <Facebook />
         <Twitter />
         <Youtube />
         <Tiktok /> */}
-        <GeoAltFill />
+        {/* <GeoAltFill /> */}
       </div>
     </main>
   );
 }
+
+const CategoryDivs = styled.div`
+  margin-top: 10px;
+`;
 
 export default HomeView;

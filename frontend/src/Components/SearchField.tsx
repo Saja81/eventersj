@@ -26,7 +26,7 @@ function SearchField() {
       console.log(searchFilter);
       setFilteredEvents?.(searchFilter);
     }
-  }, [searchText, eventResult, setFilteredEvents]);
+  }, [searchText, eventResult]);
 
   return (
     <form className="SearchField-form">

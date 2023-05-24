@@ -127,7 +127,7 @@ function EventView() {
             </div>
             {hasOpenHours && (
               <div className="EventView-divs">
-                <Clock className="Bootstrap-clock" />
+                <Clock className="Bootstrap-icons" />
 
                 {(currentHours !== "" && (
                   <div className="EventView-openhours-div">
