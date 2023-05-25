@@ -26,7 +26,7 @@ function EventCard(props: EventProps) {
         </div>
       </div>
       <div className="EventCard-description">
-        <h3>{props.eventprop.name}</h3>
+        <h4>{props.eventprop.name}</h4>
         <p>{props.eventprop.category}</p>
       </div>
     </Link>

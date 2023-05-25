@@ -1,7 +1,7 @@
 import BigEventCard from "../Components/BigEventCard";
 import SearchField from "../Components/SearchField";
 import { SomeContext } from "../SomeContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useCallback } from "react";
 import { Sliders, ChevronDown } from "react-bootstrap-icons";
 import styled from "styled-components";
 import { Result } from "../useFetch";
@@ -24,18 +24,25 @@ function ListView() {
     setFilteredEvents = useContext(SomeContext)?.setFilteredEvents;
 
   useEffect(() => {
-    console.log(filteredEvents);
-    console.log(eventResult);
     if (filteredEvents) {
       if (filteredEvents?.length < 1 && eventResult) {
         setFilteredEvents?.(eventResult);
+        console.log(filteredEvents);
+        console.log(eventResult);
       }
     }
-  }, [filteredEvents, eventResult, setFilteredEvents]);
+  }, [filteredEvents, eventResult]);
 
-  useEffect(() => {
-    console.log(filteredEvents);
-  }, [filteredEvents]);
+  // useEffect(() => {
+  //   console.log(filteredEvents);
+  // }, [filteredEvents]);
+
+  // const handleSetFilteredEvents = useCallback(
+  //   (filteredEvents: Result[]) => {
+  //     setFilteredEvents?.(filteredEvents);
+  //   },
+  //   [setFilteredEvents]
+  // );
 
   useEffect(() => {
     if (filteredEvents) {
@@ -44,13 +51,6 @@ function ListView() {
       if (showPriceCheck) {
         filterArray = filterArray.filter((event) => event.cost === null);
       }
-
-      // if (!showPriceCheck) {
-      //   filterArray = [
-      //     ...filterArray,
-      //     ...filteredEvents.filter((event) => event.cost !== null),
-      //   ];
-      // }
 
       if (selectedCities.length > 0) {
         filterArray = filterArray.filter((event) =>
@@ -73,15 +73,9 @@ function ListView() {
           filterArray = eventResult;
         }
       }
-
-      console.log(filterArray);
-      console.log(selectedCategories);
-      console.log(selectedCities);
-      console.log(showPriceCheck);
-
       setFilteredEvents?.(filterArray);
     }
-  }, [selectedCities, selectedCategories, showPriceCheck, eventResult]);
+  }, [selectedCities, selectedCategories, showPriceCheck]);
 
   function handleClick() {
     setShowFilters(!showFilters);
@@ -132,6 +126,7 @@ function ListView() {
                 <p>Stad</p>
                 <ChevronDown
                   style={{
+                    cursor: "pointer",
                     transform: isRotatedCity
                       ? "rotate(180deg)"
                       : "rotate(0deg)",
@@ -165,6 +160,7 @@ function ListView() {
                 <p>Pris</p>
                 <ChevronDown
                   style={{
+                    cursor: "pointer",
                     transform: isRotatedPrice
                       ? "rotate(180deg)"
                       : "rotate(0deg)",
@@ -194,6 +190,7 @@ function ListView() {
                 <p>Kategori</p>
                 <ChevronDown
                   style={{
+                    cursor: "pointer",
                     transform: isRotatedCategory
                       ? "rotate(180deg)"
                       : "rotate(0deg)",
@@ -219,25 +216,6 @@ function ListView() {
                       {category}
                     </label>
                   ))}
-
-                  {/* <label className="checkbox-label">
-                    <input
-                      className="checkbox-input"
-                      name="Museum"
-                      type="checkbox"
-                    />
-                    <span className="checkbox-span" />
-                    Museum
-                  </label>
-                  <label className="checkbox-label">
-                    <input
-                      className="checkbox-input"
-                      name="Friluftsliv"
-                      type="checkbox"
-                    />
-                    <span className="checkbox-span" />
-                    Friluftsliv
-                  </label> */}
                 </CheckboxDiv>
               )}
             </div>
@@ -246,7 +224,7 @@ function ListView() {
       </SearchFieldDiv>
       <div className="ListView-grid">
         {filteredEvents?.map((event) => (
-          <BigEventCard key={event.id} eventprop={event}></BigEventCard>
+          <BigEventCard key={event.id} eventprop={event} />
         ))}
       </div>
     </main>
@@ -259,6 +237,7 @@ const SearchFieldDiv = styled.div`
   align-items: center;
   margin-bottom: 16px;
   position: relative;
+  justify-content: center !important;
 
   > svg {
     width: 30px;

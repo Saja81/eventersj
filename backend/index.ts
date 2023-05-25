@@ -20,14 +20,14 @@ const app: Application = express();
 
 const port = process.env.PORT || 8080;
 
+app.use(express.json());
+
+app.use(cors());
+
 app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(path.resolve(), "public")));
 app.use("/images", express.static(path.join(__dirname, "publicimages")));
-
-app.use(express.json());
-
-app.use(cors());
 
 app.get(
   "/events",

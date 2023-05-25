@@ -27,8 +27,13 @@ h2 {
 
 h3 {
   font-size: 16px !important;
+  font-weight: bold !important;
 }
 
+h4 {
+  font-size: 16px !important;
+  font-weight: bold !important;
+}
 p {
   font-size: 16px !important;
   margin-bottom: 0 !important;
@@ -75,6 +80,11 @@ a {
   height: 36px;
   color: #575757;
   margin-right: 24px;
+  cursor: pointer;
+}
+
+.Bootstrap-clock {
+  margin-right: 18px !important;
 }
 
 .HomeView-image-div {
@@ -89,6 +99,14 @@ a {
 
 .HomeView-image-div > h1 {
   width: 70%;
+}
+
+.HomeView-mobile-div > p {
+  width: 95%;
+}
+
+.HomeView-desktop-div {
+  display: none;
 }
 
 .EventCard-div {
@@ -144,7 +162,7 @@ p {
   object-fit: cover;
 }
 
-.event-div {
+.HomeView-event-div {
   width: 375px;
   display: flex;
   flex-direction: row;
@@ -161,36 +179,9 @@ p {
 }
 
 .BigEventCard-image-div {
-  width: 171px;
+  width: 100%;
   height: 146px;
 }
-
-/* Titel till stor biled event */
-
-// width: 171px;
-// height: 43px;
-
-// /* Inside auto layout */
-// flex: none;
-// order: 1;
-// flex-grow: 0;
-
-// /* Titel Kategori */
-
-// position: absolute;
-// left: 0%;
-// right: 0%;
-// top: 0%;
-// bottom: 0%;
-
-// /* P, Body Text */
-// font-family: "Helvetica";
-// font-style: normal;
-// font-weight: 700;
-// font-size: 16px;
-// line-height: 18px;
-
-// color: #000000;
 
 .SearchField-form {
   position: relative;
@@ -292,86 +283,135 @@ p {
 }
 
 .ListView-grid {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-/* Inside auto layout */
-// flex: none;
-// order: 0;
-// align-self: stretch;
-// flex-grow: 0;
+@media (min-width: 900px) {
+  h1 {
+    font-size: 72px !important;
+  }
 
-/* Sök med ikon */
+  h2 {
+    font-size: 48px !important;
+  }
 
-/* Auto layout */
-// display: flex;
-// flex-direction: row;
-// align-items: center;
-// padding: 0px;
-// gap: 4px;
+  h3 {
+    font-size: 32px !important;
+  }
 
-// width: 55.02px;
-// height: 48px;
+  .main-divs {
+    padding: 48px;
+  }
 
-/* Inside auto layout */
-// flex: none;
-// order: 0;
-// flex-grow: 0;
+  .HomeView-image-div {
+    flex-direction: column;
+    height: 738px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
 
-/* Frame */
+  .HomeView-image-div::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1b1b1b8e;
+  }
 
-// width: 22.02px;
-// height: 22px;
+  .HomeView-image-div > h1 {
+    align-self: center;
+    width: 80%;
+    z-index: 4;
+  }
 
-// transform: matrix(1, 0, 0, -1, 0, 0);
+  .HomeView-desktop-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 4;
+  }
 
-/* Inside auto layout */
-// flex: none;
-// order: 0;
-// flex-grow: 0;
+  .HomeView-mobile-div {
+    display: none;
+  }
 
-/* Group */
+  .HomeView-desktop-h3 {
+    margin: 71px 0 24px 0;
+    color: white;
+  }
 
-// position: absolute;
-// left: 0.05%;
-// right: 19.19%;
-// top: 90%;
-// bottom: -67.5%;
+  .HomeView-desktop-p {
+    color: white;
+    width: 70%;
+    text-align: center;
+    margin-bottom: 24px !important;
+  }
 
-// transform: matrix(1, 0, 0, -1, 0, 0);
+  .HomeView-event-div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
 
-/* Vector */
+  .EventCard-div,
+  .BigEventCard-div {
+    gap: 10px;
+    width: 285px;
+    height: 310px;
+    margin-right: 16px;
+  }
 
-// position: absolute;
-// left: 0.05%;
-// right: 19.19%;
-// top: 90%;
-// bottom: -67.5%;
+  .EventCard-image-div {
+    height: 243px;
+    width: 100%;
+  }
 
-// background: #575757;
-// transform: matrix(1, 0, 0, -1, 0, 0);
+  .SearchField-form {
+    width: 996px;
+    height: 59px;
+    margin: 0;
+    margin-right: 32px;
+  }
 
-/* Sök */
+  .SearchField-input {
+    width: 100%;
+    height: 80%;
+    background: $white;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 37px;
+    outline: none;
+    border: none;
+    padding: 5px 5px 5px 40px;
+  }
 
-// width: 29px;
-// height: 48px;
+  .EventView-image-container {
+    height: 632px;
+  }
 
-/* P, Body Text */
-// font-family: "Helvetica";
-// font-style: normal;
-// font-weight: 400;
-// font-size: 16px;
-// line-height: 18px;
-// display: flex;
-// align-items: center;
+  .EventView-image {
+    object-fit: cover;
+    height: 100%;
+  }
 
-// color: #000000;
+  .EventView-desktop-div {
+    display: flex;
+    flex-direction: row;
+  }
 
-/* Inside auto layout */
-// flex: none;
-// order: 1;
-// flex-grow: 0;
+  .EventView-intro-div {
+    width: 60%;
+    margin-right: 64px;
+  }
+}
 
 @import "~bootstrap/scss/bootstrap";

@@ -40,8 +40,8 @@ function App() {
     {
       children: [
         { element: <HomeView />, path: "/" },
-        { element: <ListView />, path: "/eventlist" },
-        { element: <EventView />, path: "/eventlist/:eventId" },
+        { element: <ListView />, path: "/events" },
+        { element: <EventView />, path: "/events/:eventId" },
         // { element: <LoginView />, path: "/login" },
       ],
       element: <Root />,

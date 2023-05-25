@@ -54,20 +54,20 @@ const HamburgerMenu = () => {
                   <SearchField />
 
                   <li>
-                    <Link className="NavBar-links" to="/eventlist">
+                    <Link className="NavBar-links" to="/events">
                       Evenemang
                     </Link>
                   </li>
 
                   <li>
-                    <Link className="NavBar-links" to="/eventlist">
+                    <Link className="NavBar-links" to="/events">
                       Kontakta oss
                     </Link>
                   </li>
                 </ul>
                 <SecondaryButton> Logga in </SecondaryButton>
                 <li>
-                  <Link className="NavBar-links" to="/eventlist">
+                  <Link className="NavBar-links" to="/events">
                     Skapa ett konto
                   </Link>
                 </li>

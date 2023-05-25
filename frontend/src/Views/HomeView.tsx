@@ -27,26 +27,39 @@ function HomeView() {
     <main>
       <div className="HomeView-image-div">
         <h1>Vad vill du göra ikväll?</h1>
+        <div className="HomeView-desktop-div">
+          <h3 className="HomeView-desktop-h3">Aktivitetskalendern nära dig</h3>
+          <p className="HomeView-desktop-p">
+            Vill du cykla, nätverka eller gå på konsert? Vi samlar alla olika
+            evenemang på en och samma plats så att du enkelt kan hitta något som
+            passar dig.
+          </p>
+
+          <PrimaryButton>
+            <Link to="/eventlist">Upptäck alla event</Link>
+          </PrimaryButton>
+        </div>
       </div>
       <div className="main-divs">
-        <h2>Aktivitetskalendern nära dig</h2>
-        <p>
-          Vill du cykla, nätverka eller gå på konsert? Vi samlar alla olika
-          evenemang på en och samma plats så att du enkelt kan hitta något som
-          passar dig.
-        </p>
+        <div className="HomeView-mobile-div">
+          <h2>Aktivitetskalendern nära dig</h2>
+          <p>
+            Vill du cykla, nätverka eller gå på konsert? Vi samlar alla olika
+            evenemang på en och samma plats så att du enkelt kan hitta något som
+            passar dig.
+          </p>
 
-        <PrimaryButton>
-          <Link to="/eventlist">Upptäck alla event</Link>
-        </PrimaryButton>
+          <PrimaryButton>
+            <Link to="/eventlist">Upptäck alla event</Link>
+          </PrimaryButton>
 
-        <SecondaryButton>Logga in</SecondaryButton>
-
+          <SecondaryButton>Logga in</SecondaryButton>
+        </div>
         <div>
           {concerts && concerts !== undefined && (
             <CategoryDivs>
-              <h2>Konserter</h2>
-              <div className="event-div event-div-museum">
+              <h3>Konserter</h3>
+              <div className="HomeView-event-div event-div-museum">
                 {concerts.map((event) => (
                   <EventCard eventprop={event} />
                 ))}
@@ -55,8 +68,8 @@ function HomeView() {
           )}
           {museums && museums !== undefined && (
             <CategoryDivs>
-              <h2>Museum</h2>
-              <div className="event-div event-div-museum">
+              <h3>Museum</h3>
+              <div className="HomeView-event-div event-div-museum">
                 {museums.map((event) => (
                   <EventCard eventprop={event} />
                 ))}
@@ -65,8 +78,8 @@ function HomeView() {
           )}
           {activities && activities !== undefined && (
             <CategoryDivs>
-              <h2>Friluftsliv</h2>
-              <div className="event-div event-div-museum">
+              <h3>Friluftsliv</h3>
+              <div className="HomeView-event-div event-div-museum">
                 {activities.map((event) => (
                   <EventCard eventprop={event} />
                 ))}
@@ -87,6 +100,12 @@ function HomeView() {
 
 const CategoryDivs = styled.div`
   margin-top: 10px;
+
+  @media (min-width: 900px) {
+    h3 {
+      margin-left: 25px;
+    }
+  }
 `;
 
 export default HomeView;

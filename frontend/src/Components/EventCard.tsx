@@ -13,7 +13,7 @@ function EventCard(props: EventProps) {
   }, [props.eventprop]);
 
   useEffect(() => {
-    setRoute("/eventlist/" + props.eventprop.id_name);
+    setRoute("/events/" + props.eventprop.id_name);
   }, [props.eventprop.id_name]);
 
   // Länk till event funkar inte!!
@@ -35,7 +35,7 @@ function EventCard(props: EventProps) {
         )}
       </div>
       <div className="EventCard-description">
-        <h3>{props.eventprop.name}</h3>
+        <h4>{props.eventprop.name}</h4>
         <p>{props.eventprop.category}</p>
       </div>
     </Link>

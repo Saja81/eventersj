@@ -57,6 +57,9 @@ DROP TABLE IF EXISTS activities;
   INSERT INTO events (name, id_name, description, category, location, city, adress, image,
   location_image, openhours) VALUES ('Göteborgs Konsthall', 'göteborgskonsthall', 'Göteborgs konsthall är inrymd i en klassicistisk byggnad från 1923 som ligger vid Götaplatsen i centrala Göteborg. På Göteborgs konsthall står samtidskonsten i centrum. Här visas grupp- och soloutställningar med svenska och internationella konstnärer som visar på mångfalden inom den samtida konsten.', 'Museum', 'Göteborgs Konsthall', 'Göteborg', 'Götaplatsen 10, 412 56, Göteborg', '/images/gbgkonsthall.jpg', '/images/gbgkonsthalllocation.jpg', 'true');
 
+    INSERT INTO events (name, id_name, description, category, location, city, adress, image,
+  location_image, openhours) VALUES ('Röhsska museet', 'rohsskamuseet', 'Hur förändrar design samhället, miljön och våra liv? Röhsska museet öppnade 1916 och är ett museum för design och konsthantverk. Med museets samlingar, utställningar och program undersöker vi hur form, mode och design påverkat oss genom historien och på väg mot framtiden. ', 'Museum', 'Röhsska', 'Göteborg', 'Vasagatan 37-39, 412 56, Göteborg', '/images/rohsska.jpg', '/images/rohsskalocation.jpg', 'true');
+
  -- ----FRILUFTSLIV-------
 
   INSERT INTO events (name, id_name, description, category, location, city, image,
@@ -67,6 +70,9 @@ DROP TABLE IF EXISTS activities;
 
   INSERT INTO events (name, id_name, description, category, location, city, image,
   location_image, openhours) VALUES ('Höghöjdsbana', 'höghöjdsbana', 'Få lite äventyr i vardagen! Äventyr uppe bland trädtopparna på banor och ziplinor med olika svårighetsgrad. De stora höghöjdsbanorna har åldersgränser runt 12 år men det brukar även finnas mindre banor i anslutning för barn från ca 7-8 år.', 'Friluftsliv', 'Mölndal', 'Göteborg', '/images/hoghojdsbana.jpg', '/images/hoghojdslocation.jpg', 'false');
+
+    INSERT INTO events (name, id_name, description, category, location, city, image,
+  location_image, openhours) VALUES ('Klättring', 'klättring', 'För den som letar efter ett smultronställe med ankare och bultade leder så är den 13 meter höga Gunnilseklippan ett riktigt bra alternativ. Här är det sällan många klättrare och klippan ligger varmt vänd mot sydväst. Säkringsmarken är platt och snäll, perfekt för familjen som vill ta med de små barnen som hellre leker längs marken än klättrar uppåt på stenen. Gunnilseklippan med sina bultar och ankare är som inomhusklättring fast utomhus – bland lövträd, fågelkvitter och solsken.', 'Friluftsliv', 'Gunnilse', 'Göteborg', '/images/klättring.jpg', '/images/klättringlocation.jpg', 'false');
 
 
   -- INSERT INTO events (name, id_name, description, category, location, city, cost, first, last) VALUES ('Art Exhibition', 'artexhibition', 'Discover a collection of contemporary art installations.', 'Museum', 'Konstmuseet', 'Göteborg', 'från 120:-', '2023-06-15', '2023-09-20');
@@ -87,6 +93,12 @@ CREATE TABLE openhours (
 );
 
 INSERT INTO openhours (event_id, monday, tuesday, wednesday, thursday, friday, saturday, sunday) VALUES (4, 'Stängt', '11.00-17.00', '11.00-17.00', '11.00-20.00', '11.00-17.00', '11.00-17.00', '11.00-17.00');
+
+INSERT INTO openhours (event_id, monday, tuesday, wednesday, thursday, friday, saturday, sunday) VALUES (5, 'Stängt', '11.00-18.00', '11.00-20.00', '11.00-18.00', '11.00-17.00', '11.00-17.00', '11.00-17.00');
+
+INSERT INTO openhours (event_id, monday, tuesday, wednesday, thursday, friday, saturday, sunday) VALUES (6, 'Stängt', '11.00-18.00', '11.00-20.00', '11.00-18.00', '11.00-17.00', '11.00-17.00', '11.00-17.00');
+
+INSERT INTO openhours (event_id, monday, tuesday, wednesday, thursday, friday, saturday, sunday) VALUES (11, 'Stängt', '11.00-18.00', '11.00-18.00', '11.00-20.00', '11.00-17.00', '11.00-17.00', '11.00-17.00');
 
 
  CREATE TABLE users (
