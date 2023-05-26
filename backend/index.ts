@@ -38,6 +38,18 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/static/js/:filename", (req, res, next) => {
+  const filePath = path.join(
+    __dirname,
+    "public",
+    "static",
+    "js",
+    req.params.filename
+  );
+  res.set("Content-Type", "application/javascript");
+  res.sendFile(filePath);
+});
+
 app.get(
   "/events",
   async (request: Request, response: Response, next: NextFunction) => {
