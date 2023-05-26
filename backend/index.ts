@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import path from "path";
 import { Client } from "pg";
+import mime from "mime-types";
 
 dotenv.config();
 
@@ -25,6 +26,14 @@ app.use(express.json());
 app.use(cors());
 
 app.use(express.urlencoded({ extended: false }));
+
+app.use((req, res, next) => {
+  const filePath = path.join(__dirname, "public", req.url);
+  const contentType =
+    mime.contentType(path.extname(filePath)) || "application/octet-stream";
+  res.type(contentType);
+  next();
+});
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/images", express.static(path.join(__dirname, "publicimages")));
