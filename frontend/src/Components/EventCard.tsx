@@ -13,7 +13,7 @@ function EventCard(props: EventProps) {
   }, [props.eventprop]);
 
   useEffect(() => {
-    setRoute("/events/" + props.eventprop.id_name);
+    setRoute("/eventlist/" + props.eventprop.id_name);
   }, [props.eventprop.id_name]);
 
   // Länk till event funkar inte!!

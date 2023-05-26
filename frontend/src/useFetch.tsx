@@ -20,7 +20,7 @@ export interface Result {
 export function useFetchEvents(): Result[] | [] {
   const [result, setResult] = useState<Result[] | []>([]);
   useEffect(() => {
-    fetch("/fetchevents")
+    fetch("/events")
       .then((response) => response.json())
       .then((result) => {
         setResult(result);

@@ -30,7 +30,7 @@ app.use(express.static(path.join(path.resolve(), "public")));
 app.use("/images", express.static(path.join(__dirname, "publicimages")));
 
 app.get(
-  "/fetchevents",
+  "/events",
   async (request: Request, response: Response, next: NextFunction) => {
     const { rows } = await client.query("SELECT * FROM events");
     response.status(200).send(rows);
@@ -38,7 +38,7 @@ app.get(
 );
 
 app.get(
-  "/fetchevents/:eventId",
+  "/events/:eventId",
   async (request: Request, response: Response, next: NextFunction) => {
     const { rows } = await client.query(
       "SELECT * FROM events WHERE id_name = $1",

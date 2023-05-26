@@ -44,7 +44,7 @@ function EventView() {
     { eventId } = useParams<Params>();
 
   useEffect(() => {
-    fetch(`/fetchevents/${eventId}`)
+    fetch(`/events/${eventId}`)
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
