@@ -44,7 +44,7 @@ function EventView() {
     { eventId } = useParams<Params>();
 
   useEffect(() => {
-    fetch(`/events/${eventId}`)
+    fetch(`/fetchevents/${eventId}`)
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
@@ -55,7 +55,7 @@ function EventView() {
   useEffect(() => {
     if (event !== undefined) {
       if (event.openhours === "true") {
-        fetch(`http://localhost:8080/openhours/${event.id}`)
+        fetch(`/openhours/${event.id}`)
           .then((response) => response.json())
           .then((result) => {
             console.log(result);
