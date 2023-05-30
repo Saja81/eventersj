@@ -2,7 +2,9 @@ import BigEventCard from "../Components/BigEventCard";
 import SearchField from "../Components/SearchField";
 import { SomeContext } from "../SomeContext";
 import React, { useContext, useEffect, useState } from "react";
-import { Sliders, ChevronDown } from "react-bootstrap-icons";
+
+import { Sliders, ChevronDown, XLg } from "react-bootstrap-icons";
+
 import styled from "styled-components";
 import { Result } from "../useFetch";
 
@@ -152,7 +154,11 @@ function ListView() {
     <main className="main-divs">
       <SearchFieldDiv>
         <SearchField />
-        <Sliders onClick={handleClick} className="Bootstrap-icons" />
+        {!showFilters ? (
+          <Sliders onClick={handleClick} className="Bootstrap-icons" />
+        ) : (
+          <XLg onClick={handleClick} className="Bootstrap-icons" />
+        )}
         {showFilters && (
           <FilterDiv>
             <div>
