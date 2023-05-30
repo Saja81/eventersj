@@ -335,6 +335,11 @@ const FilterDiv = styled.div`
   @media (min-width: 900px) {
     left: -48px;
     width: calc(100% + 96px);
+    flex-direction: row;
+
+    > div {
+      justify-content: space-around;
+    }
   }
 `;
 
