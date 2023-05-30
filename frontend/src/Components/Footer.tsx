@@ -70,10 +70,20 @@ function Footer() {
             ></img>
           </Col>
           <Col>
-            <img src="../Ticketmaster-Logo.png" alt="Ticketmaster"></img>
+            <img
+              width="128px"
+              height="17px"
+              src="/images/Ticketmaster-Logo.png"
+              alt="Ticketmaster"
+            ></img>
           </Col>
           <Col>
-            <img src="../Axs_logo.png" alt="Göteborg Stad"></img>
+            <img
+              width="94px"
+              height="19px"
+              src="/images/Got_Logo.png"
+              alt="Göteborg Stad"
+            ></img>
           </Col>
         </Row>
       </Container>
