@@ -15,6 +15,7 @@ function SearchField() {
       console.log(searchFilter);
       setFilteredEvents?.(searchFilter);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchText, eventResult]);
 
   return (

@@ -1,7 +1,7 @@
 import BigEventCard from "../Components/BigEventCard";
 import SearchField from "../Components/SearchField";
 import { SomeContext } from "../SomeContext";
-import React, { useContext, useEffect, useState, useCallback } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Sliders, ChevronDown } from "react-bootstrap-icons";
 import styled from "styled-components";
 import { Result } from "../useFetch";
@@ -31,6 +31,7 @@ function ListView() {
         console.log(eventResult);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [eventResult]);
 
   function filterArrays(arrays: Result[][]) {
@@ -78,6 +79,7 @@ function ListView() {
 
       setFilteredEvents?.(filteredArray);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCities, selectedCategories, showPriceCheck, eventResult]);
 
   function handleClick() {

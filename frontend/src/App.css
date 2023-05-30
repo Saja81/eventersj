@@ -34,7 +34,7 @@
   color: #ffffff;
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
-  padding: 16px;
+  text-align: center;
 }
 
 .footer {
@@ -115,6 +115,7 @@
   font-family: "Fontname";
   color: white;
   font-size: 36px !important;
+  margin-right: 50px;
 }
 
 #menu.open {

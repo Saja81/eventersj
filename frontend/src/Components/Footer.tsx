@@ -62,7 +62,12 @@ function Footer() {
         </Row>
         <Row>
           <Col>
-            <img src="../Axs_logo.png" alt="Axs"></img>
+            <img
+              width="50px"
+              height="19px"
+              src="/images/Axs_logo.png"
+              alt="Axs"
+            ></img>
           </Col>
           <Col>
             <img src="../Ticketmaster-Logo.png" alt="Ticketmaster"></img>

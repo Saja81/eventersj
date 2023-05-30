@@ -49,28 +49,29 @@ const HamburgerMenu = () => {
                   </button>
                 </Col>
               </Row>
-              <Row className="NavBar-list">
-                <ul>
-                  <SearchField />
-
+              <Row>
+                <ul className="NavBar-links">
+                  {/* <SearchField /> */}
                   <li>
-                    <Link className="NavBar-links" to="/eventlist">
-                      Evenemang
-                    </Link>
+                    <Link to="">Search</Link>
                   </li>
 
                   <li>
-                    <Link className="NavBar-links" to="/eventlist">
-                      Kontakta oss
-                    </Link>
+                    <Link to="/eventlist">Evenemang</Link>
+                  </li>
+
+                  <li>
+                    <Link to="/eventlist">Kontakta oss</Link>
+                  </li>
+
+                  <SecondaryButton>
+                    {" "}
+                    <Link to="/login"></Link> Logga in{" "}
+                  </SecondaryButton>
+                  <li>
+                    <Link to="/signup">Skapa ett konto</Link>
                   </li>
                 </ul>
-                <SecondaryButton> <Link to="/login"></Link> Logga in </SecondaryButton>
-                <li>
-                  <Link className="NavBar-links" to="/signup">
-                    Skapa ett konto
-                  </Link>
-                </li>
               </Row>
             </nav>
           </div>
