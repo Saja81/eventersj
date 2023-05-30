@@ -103,15 +103,12 @@ INSERT INTO openhours (event_id, monday, tuesday, wednesday, thursday, friday, s
 
  CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  id_name TEXT UNIQUE NOT NULL,
-  name TEXT UNIQUE NOT NULL,
-  description TEXT NOT NULL,
-  category TEXT NOT NULL,
-  location TEXT,
-  city TEXT NOT NULL,
-  adress TEXT,
-  cost TEXT,
-  link TEXT,
-  date TEXT,
-  image TEXT,
-  location_image TEXT);
+  name TEXT NOT NULL,
+  email TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL);
+
+CREATE TABLE favorites (
+  user_id INTEGER,
+  event_id INTEGER,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (event_id) REFERENCES events(id));

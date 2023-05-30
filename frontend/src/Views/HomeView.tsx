@@ -42,18 +42,20 @@ function HomeView() {
       </div>
       <div className="main-divs">
         <div className="HomeView-mobile-div">
-          <h2>Aktivitetskalendern nära dig</h2>
+          <h3>Aktivitetskalendern nära dig</h3>
           <p>
             Vill du cykla, nätverka eller gå på konsert? Vi samlar alla olika
             evenemang på en och samma plats så att du enkelt kan hitta något som
             passar dig.
           </p>
 
-          <PrimaryButton>
-            <Link to="/eventlist">Upptäck alla event</Link>
-          </PrimaryButton>
+          <div className="HomeView-button-div">
+            <PrimaryButton>
+              <Link to="/eventlist">Upptäck alla event</Link>
+            </PrimaryButton>
 
-          <SecondaryButton>Logga in</SecondaryButton>
+            <SecondaryButton>Logga in</SecondaryButton>
+          </div>
         </div>
         <div>
           {concerts && concerts !== undefined && (
@@ -87,12 +89,6 @@ function HomeView() {
             </CategoryDivs>
           )}
         </div>
-        {/* <Instagram />
-        <Facebook />
-        <Twitter />
-        <Youtube />
-        <Tiktok /> */}
-        {/* <GeoAltFill /> */}
       </div>
     </main>
   );
@@ -103,7 +99,7 @@ const CategoryDivs = styled.div`
 
   @media (min-width: 900px) {
     h3 {
-      margin-left: 25px;
+      margin: 0 0 16px 16px;
     }
   }
 `;

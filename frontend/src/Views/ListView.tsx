@@ -1,7 +1,7 @@
 import BigEventCard from "../Components/BigEventCard";
 import SearchField from "../Components/SearchField";
 import { SomeContext } from "../SomeContext";
-import { useContext, useEffect, useState, useCallback } from "react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import { Sliders, ChevronDown } from "react-bootstrap-icons";
 import styled from "styled-components";
 import { Result } from "../useFetch";
@@ -31,88 +31,120 @@ function ListView() {
         console.log(eventResult);
       }
     }
-  }, [filteredEvents, eventResult]);
+  }, [eventResult]);
 
-  // useEffect(() => {
-  //   console.log(filteredEvents);
-  // }, [filteredEvents]);
+  function filterArrays(arrays: Result[][]) {
+    const copyArray = [...arrays[0]];
 
-  // const handleSetFilteredEvents = useCallback(
-  //   (filteredEvents: Result[]) => {
-  //     setFilteredEvents?.(filteredEvents);
-  //   },
-  //   [setFilteredEvents]
-  // );
+    const filterArray = copyArray.filter((object) => {
+      return arrays.every((array) => array.some((item) => item === object));
+    });
+
+    return filterArray;
+  }
 
   useEffect(() => {
-    if (filteredEvents) {
-      let filterArray: Result[] = filteredEvents;
+    if (eventResult) {
+      const originalEvents = eventResult.slice();
+      console.log(originalEvents);
 
-      if (showPriceCheck) {
-        filterArray = filterArray.filter((event) => event.cost === null);
-      }
+      let priceArray: Result[] = showPriceCheck
+        ? originalEvents.filter((event) => event.cost === null)
+        : originalEvents;
 
-      if (selectedCities.length > 0) {
-        filterArray = filterArray.filter((event) =>
-          selectedCities.includes(event.city)
-        );
-      }
+      console.log(selectedCities);
 
-      if (selectedCategories.length > 0) {
-        filterArray = filterArray.filter((event) =>
-          selectedCategories.includes(event.category)
-        );
-      }
+      let citiesArray: Result[] =
+        selectedCities.length > 0
+          ? originalEvents.filter((event) =>
+              selectedCities.includes(event.city)
+            )
+          : originalEvents;
 
-      if (
-        selectedCategories.length === 0 &&
-        selectedCities.length === 0 &&
-        !showPriceCheck
-      ) {
-        if (eventResult) {
-          filterArray = eventResult;
-        }
-      }
-      setFilteredEvents?.(filterArray);
+      let categoriesArray: Result[] =
+        selectedCategories.length > 0
+          ? originalEvents.filter((event) =>
+              selectedCategories.includes(event.category)
+            )
+          : originalEvents;
+
+      const filteredArray = filterArrays([
+        priceArray,
+        citiesArray,
+        categoriesArray,
+      ]);
+
+      console.log(filteredArray);
+
+      setFilteredEvents?.(filteredArray);
     }
-  }, [selectedCities, selectedCategories, showPriceCheck]);
+  }, [selectedCities, selectedCategories, showPriceCheck, eventResult]);
 
   function handleClick() {
     setShowFilters(!showFilters);
   }
 
-  function handleCityClick() {
-    setShowCities(!showCities);
-    setIsRotatedCity(!isRotatedCity);
+  function handleToggleClick(
+    showState: React.Dispatch<React.SetStateAction<boolean>>,
+    rotateState: React.Dispatch<React.SetStateAction<boolean>>
+  ) {
+    return function () {
+      showState((prevState: boolean) => !prevState);
+      rotateState((prevState: boolean) => !prevState);
+    };
   }
 
-  function handlePriceClick() {
-    setShowPrice(!showPrice);
-    setIsRotatedPrice(!isRotatedPrice);
-  }
+  const handleCityClick = handleToggleClick(setShowCities, setIsRotatedCity);
+  const handlePriceClick = handleToggleClick(setShowPrice, setIsRotatedPrice);
+  const handleCategoryClick = handleToggleClick(
+    setShowCategory,
+    setIsRotatedCategory
+  );
 
-  function handleCategoryClick() {
-    setShowCategory(!showCategory);
-    setIsRotatedCategory(!isRotatedCategory);
-  }
+  // function handleCityClick() {
+  //   setShowCities(!showCities);
+  //   setIsRotatedCity(!isRotatedCity);
+  // }
 
-  const handleCityChange = (selectCity: string) => {
-    if (selectedCities.some((city) => city === selectCity)) {
-      setSelectedCities(selectedCities.filter((city) => city !== selectCity));
+  // function handlePriceClick() {
+  //   setShowPrice(!showPrice);
+  //   setIsRotatedPrice(!isRotatedPrice);
+  // }
+
+  // function handleCategoryClick() {
+  //   setShowCategory(!showCategory);
+  //   setIsRotatedCategory(!isRotatedCategory);
+  // }
+
+  const handleChange = (
+    value: string,
+    selectedValues: string[],
+    setSelectedValues: React.Dispatch<React.SetStateAction<string[]>>
+  ) => {
+    if (selectedValues.some((city) => city === value)) {
+      setSelectedValues(selectedValues.filter((val) => val !== value));
     } else {
-      setSelectedCities([...selectedCities, selectCity]);
+      setSelectedValues([...selectedValues, value]);
     }
   };
 
-  const handleCategoryChange = (category: string) => {
-    if (selectedCategories.some((cat) => cat === category)) {
-      setSelectedCategories(
-        selectedCategories.filter((cat) => cat !== category)
-      );
-    } else {
-      setSelectedCategories([...selectedCategories, category]);
-    }
-  };
+  // const handleCityChange = (selectCity: string) => {
+  //   if (selectedCities.some((city) => city === selectCity)) {
+  //     setSelectedCities(selectedCities.filter((city) => city !== selectCity));
+  //   } else {
+  //     setSelectedCities([...selectedCities, selectCity]);
+  //   }
+  // };
+
+  // const handleCategoryChange = (category: string) => {
+  //   if (selectedCategories.some((cat) => cat === category)) {
+  //     setSelectedCategories(
+  //       selectedCategories.filter((cat) => cat !== category)
+  //     );
+  //   } else {
+  //     setSelectedCategories([...selectedCategories, category]);
+  //   }
+  // };
 
   return (
     <main className="main-divs">
@@ -146,7 +178,14 @@ function ListView() {
                         checked={selectedCities.some(
                           (city) => city === selectCity
                         )}
-                        onChange={() => handleCityChange(selectCity)}
+                        // onChange={() => handleCityChange(selectCity)}
+                        onChange={() =>
+                          handleChange(
+                            selectCity,
+                            selectedCities,
+                            setSelectedCities
+                          )
+                        }
                       />
                       <span className="checkbox-span" />
                       {selectCity}
@@ -210,7 +249,14 @@ function ListView() {
                         checked={selectedCategories.some(
                           (cat) => cat === category
                         )}
-                        onChange={() => handleCategoryChange(category)}
+                        onChange={() =>
+                          handleChange(
+                            category,
+                            selectedCategories,
+                            setSelectedCategories
+                          )
+                        }
+                        // onChange={() => handleCategoryChange(category)}
                       />
                       <span className="checkbox-span" />
                       {category}
@@ -235,9 +281,9 @@ const SearchFieldDiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   margin-bottom: 16px;
   position: relative;
-  justify-content: center !important;
 
   > svg {
     width: 30px;
@@ -253,7 +299,7 @@ const FilterDiv = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
-  width: 108.7%;
+  width: calc(100% + 32px);
   align-items: center;
   padding-bottom: 16px;
   background-color: white;
@@ -277,6 +323,11 @@ const FilterDiv = styled.div`
   p {
     font-weight: bold;
   }
+
+  @media (min-width: 900px) {
+    left: -48px;
+    width: calc(100% + 96px);
+  }
 `;
 
 const CheckboxDiv = styled.div`
@@ -286,8 +337,6 @@ const CheckboxDiv = styled.div`
 
   .checkbox-label {
     display: block;
-    /* display: flex; */
-    /* align-items: center; */
     cursor: pointer;
     position: relative;
     padding-left: 45px;
@@ -296,7 +345,6 @@ const CheckboxDiv = styled.div`
 
   .checkbox-span {
     position: absolute;
-    /* margin-right: 10px; */
     width: 26px;
     height: 26px;
     top: 0;
@@ -339,6 +387,3 @@ const CheckboxDiv = styled.div`
 `;
 
 export default ListView;
-
-// till checkboxen
-//

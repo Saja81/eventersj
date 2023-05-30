@@ -90,6 +90,7 @@ function EventView() {
         <div>
           <div className="EventView-image-container">
             <img className="EventView-image" src={event.image} alt="bild" />
+            <h2 className="EventView-h2">{event.name}</h2>
             {event.cost === null && (
               <div className="EventView-gratis-div">
                 <p>Gratis</p>
@@ -99,7 +100,7 @@ function EventView() {
           <div className="main-divs">
             <div className="EventView-desktop-div">
               <div className="EventView-intro-div">
-                <h2>{event.name}</h2>
+                <h3>{event.name}</h3>
                 <p>{event.description}</p>
               </div>
               <div className="EventView-info-div">
@@ -125,10 +126,10 @@ function EventView() {
                         {event.category}
                       </p>
                     </div>
-                    <h3 className="EventView-p EventView-location">
-                      {event.location}
-                    </h3>
-                    <p className="EventView-p ">{event.adress}</p>
+                    <h4 className="EventView-p">{event.location}</h4>
+                    <p className="EventView-p EventView-grey-p">
+                      {event.adress}
+                    </p>
                   </div>
                 </div>
                 {hasOpenHours && (
@@ -138,8 +139,14 @@ function EventView() {
                     {(currentHours !== "" && (
                       <div className="EventView-openhours-div">
                         <div>
-                          <p>{`Idag: ${currentHours}`}</p>
-                          {!showAllDates && <p>Visa fler tillfällen</p>}
+                          <p>
+                            Idag <strong>•</strong> {currentHours}
+                          </p>
+                          {!showAllDates && (
+                            <p className="EventView-grey-p">
+                              Visa fler tillfällen
+                            </p>
+                          )}
                         </div>
                         <ChevronRight
                           style={{
@@ -206,7 +213,7 @@ function EventView() {
                 )}
                 {event.cost !== null && (
                   <div className="EventView-divs">
-                    <h3>Pris: {event.cost}</h3>
+                    <h4 className="EventView-cost">Pris: {event.cost}</h4>
                   </div>
                 )}
                 {event.link !== null && (
