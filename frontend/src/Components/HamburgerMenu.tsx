@@ -65,9 +65,9 @@ const HamburgerMenu = () => {
                     </Link>
                   </li>
                 </ul>
-                <SecondaryButton> Logga in </SecondaryButton>
+                <SecondaryButton> <Link to="/login"></Link> Logga in </SecondaryButton>
                 <li>
-                  <Link className="NavBar-links" to="/eventlist">
+                  <Link className="NavBar-links" to="/signup">
                     Skapa ett konto
                   </Link>
                 </li>

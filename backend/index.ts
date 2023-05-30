@@ -20,10 +20,11 @@ client.connect();
 const app: Application = express();
 
 const port = process.env.PORT || 8080;
+app.use(cors());
 
 app.use(express.json());
 
-app.use(cors());
+
 
 app.use(express.urlencoded({ extended: false }));
 
@@ -70,25 +71,6 @@ app.get(
       response.status(404).end();
     } else {
       const event = rows[0];
-      response.status(200).send(event);
-    }
-  }
-);
-
-app.get(
-  "/openhours/:eventId",
-  async (request: Request, response: Response, next: NextFunction) => {
-    const { rows } = await client.query(
-      "SELECT * FROM openhours WHERE event_id = $1",
-      [request.params.eventId]
-    );
-
-    let event = null;
-    if (rows.length === 0) {
-      event = null;
-      response.status(200).send(event);
-    } else {
-      event = rows[0];
       response.status(200).send(event);
     }
   }

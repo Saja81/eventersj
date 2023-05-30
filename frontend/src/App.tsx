@@ -7,6 +7,8 @@ import EventView from "./Views/EventView";
 import { useFetchEvents, Result } from "./useFetch";
 import { useMemo, useState } from "react";
 import { SomeContext } from "./SomeContext";
+import LoginPage from "./Views/Login";
+import SignupPage from "./Views/signup";
 
 function App() {
   const eventResult: Result[] | [] = useFetchEvents(),
@@ -42,7 +44,8 @@ function App() {
         { element: <HomeView />, path: "/" },
         { element: <ListView />, path: "/eventlist" },
         { element: <EventView />, path: "/eventlist/:eventId" },
-        // { element: <LoginView />, path: "/login" },
+        { element: <LoginPage />, path: "/login" },
+        { element: <SignupPage />, path: "/signup" },
       ],
       element: <Root />,
     },

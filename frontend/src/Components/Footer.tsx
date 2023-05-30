@@ -50,7 +50,7 @@ function Footer() {
               </li>
 
               <li>
-                <Link className="Footer-links" to="/eventlist">
+                <Link className="Footer-links" to="/Login">
                   Logga in
                 </Link>
               </li>
