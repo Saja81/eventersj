@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Result } from "../useFetch";
 import PrimaryButton from "../Components/PrimaryButton";
-import { Clock, ChevronRight } from "react-bootstrap-icons";
+import { Clock, ChevronRight, Star, StarFill } from "react-bootstrap-icons";
 import styled from "styled-components";
 
 export type Params = {
@@ -31,6 +31,7 @@ function EventView() {
     [currentHours, setCurrentHours] = useState<string>(""),
     [hasOpenHours, setHasOpenHours] = useState(false),
     [showAllDates, setShowAllDates] = useState(false),
+    [isStarClicked, setIsStarClicked] = useState(false),
     currentDay = new Date().getDay(),
     currentWeekday = [
       "sunday",
@@ -84,6 +85,10 @@ function EventView() {
     setShowAllDates(!showAllDates);
   }
 
+  function handleStarClick() {
+    setIsStarClicked(!isStarClicked);
+  }
+
   return (
     <main>
       {event !== undefined && (
@@ -91,9 +96,14 @@ function EventView() {
           <div className="EventView-image-container">
             <img className="EventView-image" src={event.image} alt="bild" />
             <h2 className="EventView-h2">{event.name}</h2>
+            {!isStarClicked ? (
+              <Star className="Bootstrap-star" onClick={handleStarClick} />
+            ) : (
+              <StarFill className="Bootstrap-star" onClick={handleStarClick} />
+            )}
             {event.cost === null && (
               <div className="EventView-gratis-div">
-                <p>Gratis</p>
+                <p className="EvenView-gratis-p">Gratis</p>
               </div>
             )}
           </div>
@@ -126,7 +136,7 @@ function EventView() {
                         {event.category}
                       </p>
                     </div>
-                    <h4 className="EventView-p">{event.location}</h4>
+                    <p className="p1 EventView-p">{event.location}</p>
                     <p className="EventView-p EventView-grey-p">
                       {event.adress}
                     </p>
@@ -139,7 +149,7 @@ function EventView() {
                     {(currentHours !== "" && (
                       <div className="EventView-openhours-div">
                         <div>
-                          <p>
+                          <p className="p1">
                             Idag <strong>•</strong> {currentHours}
                           </p>
                           {!showAllDates && (
@@ -162,7 +172,7 @@ function EventView() {
                     )) ||
                       (event.date !== null && (
                         <div>
-                          <p>{event.date}</p>
+                          <p className="p1">{event.date}</p>
                         </div>
                       ))}
                   </div>
@@ -213,7 +223,7 @@ function EventView() {
                 )}
                 {event.cost !== null && (
                   <div className="EventView-divs">
-                    <h4 className="EventView-cost">Pris: {event.cost}</h4>
+                    <p className="p1 EventView-cost">Pris: {event.cost}</p>
                   </div>
                 )}
                 {event.link !== null && (

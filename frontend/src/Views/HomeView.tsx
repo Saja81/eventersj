@@ -89,13 +89,18 @@ function HomeView() {
             </CategoryDivs>
           )}
         </div>
+        <div className="HomeView-desktop-button">
+          <PrimaryButton>
+            <Link to="/eventlist">Upptäck alla event</Link>
+          </PrimaryButton>
+        </div>
       </div>
     </main>
   );
 }
 
 const CategoryDivs = styled.div`
-  margin-top: 10px;
+  margin-top: 16px;
 
   @media (min-width: 900px) {
     h3 {

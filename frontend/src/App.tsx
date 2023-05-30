@@ -9,6 +9,7 @@ import { useMemo, useState } from "react";
 import { SomeContext } from "./SomeContext";
 import LoginPage from "./Views/Login";
 import SignupPage from "./Views/signup";
+import ProfileView from "./Views/ProfileView";
 
 function App() {
   const eventResult: Result[] | [] = useFetchEvents(),
@@ -46,6 +47,7 @@ function App() {
         { element: <EventView />, path: "/eventlist/:eventId" },
         { element: <LoginPage />, path: "/login" },
         { element: <SignupPage />, path: "/signup" },
+        { element: <ProfileView />, path: "/profile" },
       ],
       element: <Root />,
     },
