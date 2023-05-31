@@ -125,7 +125,7 @@ function ListView() {
     selectedValues: string[],
     setSelectedValues: React.Dispatch<React.SetStateAction<string[]>>
   ) => {
-    if (selectedValues.some((city) => city === value)) {
+    if (selectedValues.some((val) => val === value)) {
       setSelectedValues(selectedValues.filter((val) => val !== value));
     } else {
       setSelectedValues([...selectedValues, value]);
@@ -276,6 +276,7 @@ function ListView() {
           </FilterDiv>
         )}
       </SearchFieldDiv>
+      <h3>Aktiviteter just nu</h3>
       <div className="ListView-grid">
         {filteredEvents?.map((event) => (
           <BigEventCard key={event.id} eventprop={event} />
@@ -335,11 +336,12 @@ const FilterDiv = styled.div`
   @media (min-width: 900px) {
     left: -48px;
     width: calc(100% + 96px);
-    flex-direction: row;
+    /* flex-direction: row;
+    justify-content: space-around;
 
     > div {
-      justify-content: space-around;
-    }
+      width: 30%;
+    } */
   }
 `;
 

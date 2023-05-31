@@ -356,6 +356,7 @@ p {
 }
 
 .ListView-grid {
+  margin-top: 16px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
@@ -419,6 +420,10 @@ p {
     height: 738px;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  .HomeView-image-div::after {
+    height: 100%;
   }
 
   .HomeView-desktop-button {
@@ -576,12 +581,6 @@ p {
 
   .ListView-grid {
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 48px;
-  }
-}
-
-@media (min-width: 1300px) {
-  .ListView-grid {
     gap: 24px;
   }
 }
@@ -592,6 +591,10 @@ p {
     overflow-x: hidden;
     margin: auto;
     justify-content: space-between;
+  }
+
+  .ListView-grid {
+    gap: 48px;
   }
 }
 

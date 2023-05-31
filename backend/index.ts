@@ -24,8 +24,6 @@ app.use(cors());
 
 app.use(express.json());
 
-
-
 app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -55,7 +53,11 @@ app.get(
   "/events",
   async (request: Request, response: Response, next: NextFunction) => {
     const { rows } = await client.query("SELECT * FROM events");
-    response.status(200).send(rows);
+    if (rows.length === 0) {
+      response.status(404).end();
+    } else {
+      response.status(200).send(rows);
+    }
   }
 );
 
@@ -76,8 +78,27 @@ app.get(
   }
 );
 
+app.get(
+  "/openhours/:eventId",
+  async (request: Request, response: Response, next: NextFunction) => {
+    const { rows } = await client.query(
+      "SELECT * FROM openhours WHERE event_id = $1",
+      [request.params.eventId]
+    );
+
+    let event = null;
+    if (rows.length === 0) {
+      event = null;
+      response.status(404).end();
+    } else {
+      event = rows[0];
+      response.status(200).send(event);
+    }
+  }
+);
+
 app.listen(port, () => {
-  console.log("Redo på" + port);
+  console.log("Redo på " + port);
 });
 
 // app.listen(8080, () => {
