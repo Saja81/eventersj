@@ -17,7 +17,9 @@ function Footer() {
       <Container>
         <Row>
           <div className="containerlogo">
-            <p id="logo">Eventer</p>
+            <Link to="/">
+              <p id="logo">Eventer</p>
+            </Link>
           </div>
         </Row>
         <Row>
@@ -30,9 +32,7 @@ function Footer() {
           <Col>
             <Facebook />
           </Col>
-          <Col>
-            <Twitter />
-          </Col>
+
           <Col>
             <Youtube />
           </Col>
@@ -44,14 +44,33 @@ function Footer() {
           <div className="footer">
             <ul className="Footer-list">
               <li>
+                <Link className="Footer-links" to="/login">
+                  Logga in
+                </Link>
+              </li>
+              <li>
+                <Link className="Footer-links" to="/signup">
+                  Skapa konto
+                </Link>
+              </li>
+              <li>
+                <Link className="Footer-links" to="/">
+                  Mina sidor
+                </Link>
+              </li>
+              <li>
+                <Link className="Footer-links" to="/EventWiew">
+                  Evenemang
+                </Link>
+              </li>
+              <li>
                 <Link className="Footer-links" to="/">
                   Kontakt
                 </Link>
               </li>
-
               <li>
-                <Link className="Footer-links" to="/Login">
-                  Logga in
+                <Link className="Footer-links" to="/">
+                  FAQ
                 </Link>
               </li>
             </ul>

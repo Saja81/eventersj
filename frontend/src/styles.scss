@@ -89,6 +89,24 @@ dt {
   border: 1px solid $rust !important;
 }
 
+.button-nav {
+  width: 149px !important;
+  height: 43px !important;
+  border-radius: 20px !important;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
+  font-weight: bold !important;
+}
+
+.secondary-button-nav:hover {
+  background-color: #eeeeee !important;
+}
+
+.secondary-button-nav {
+  background-color: #FFFFFF !important;
+  color: $rust !important;
+  border: 1px solid $rust !important;
+}
+
 .main-divs {
   padding: 16px;
 }
