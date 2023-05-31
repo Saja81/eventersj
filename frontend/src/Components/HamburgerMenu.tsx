@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import SecondaryButton from "./SecondaryButton";
+import SecondaryButtonNav from "./SecondaryButtonNav";
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +30,9 @@ const HamburgerMenu = () => {
               <Row>
                 <Col>
                   <div className="containerlogo">
-                    <p id="logo">Eventer</p>
+                    <Link to="/">
+                      <p id="logo">Eventer</p>
+                    </Link>
                   </div>
                 </Col>
 
@@ -48,26 +50,29 @@ const HamburgerMenu = () => {
                   </button>
                 </Col>
               </Row>
-              <Row>
+              <Row className="Row-Nav">
                 <ul className="NavBar-links">
                   {/* <SearchField /> */}
-                  <li>
+                  <li className="NavBar-link">
                     <Link to="">Search</Link>
                   </li>
 
-                  <li>
+                  <li className="NavBar-link">
                     <Link to="/eventlist">Evenemang</Link>
                   </li>
 
-                  <li>
+                  <li className="NavBar-link">
                     <Link to="/eventlist">Kontakta oss</Link>
                   </li>
+                </ul>
+              </Row>
+              <Row className="Row-Nav">
+                <ul className="NavBar-links">
+                  <SecondaryButtonNav>
+                    <Link to="/login">Logga in</Link>
+                  </SecondaryButtonNav>
 
-                  <SecondaryButton>
-                    {" "}
-                    <Link to="/login"></Link> Logga in{" "}
-                  </SecondaryButton>
-                  <li>
+                  <li className="NavBar-link">
                     <Link to="/signup">Skapa ett konto</Link>
                   </li>
                 </ul>
