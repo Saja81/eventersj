@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.9f55af3a.css",
-    "main.js": "/static/js/main.87241938.js",
+    "main.css": "/static/css/main.48d94fd1.css",
+    "main.js": "/static/js/main.f9e4a823.js",
     "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
     "static/media/danny-howe-bn-D2bCvpik-unsplash.jpg": "/static/media/danny-howe-bn-D2bCvpik-unsplash.5a6ce1dc641002bc967e.jpg",
     "static/media/DMSerifDisplay-Regular.ttf": "/static/media/DMSerifDisplay-Regular.ef3c642c5fd9ae15682f.ttf",
     "static/media/holligate-signature-demo.ttf": "/static/media/holligate-signature-demo.bbef5232ad848532920d.ttf",
     "index.html": "/index.html",
-    "main.9f55af3a.css.map": "/static/css/main.9f55af3a.css.map",
-    "main.87241938.js.map": "/static/js/main.87241938.js.map",
+    "main.48d94fd1.css.map": "/static/css/main.48d94fd1.css.map",
+    "main.f9e4a823.js.map": "/static/js/main.f9e4a823.js.map",
     "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9f55af3a.css",
-    "static/js/main.87241938.js"
+    "static/css/main.48d94fd1.css",
+    "static/js/main.f9e4a823.js"
   ]
 }

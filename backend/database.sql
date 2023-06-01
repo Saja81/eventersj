@@ -1,17 +1,4 @@
 
--- För att koppla upp och ändra/lägga till i databasen
--- psql --host balarama.db.elephantsql.com --user sgrzzggi sgrzzggi
-
--- Detta ska konfigureras i terminalen för att env-filen inte skickas med till github!
-
--- cd backend
--- npx heroku config:set PGDATABASE=sgrzzggi
--- npx heroku config:set PGHOST=balarama.db.elephantsql.com
--- npx heroku config:set PGPASSWORD=Py2yjvHFszF-iVOWSy-v5Gmrqiib8kBe
--- npx heroku config:set PGPORT=5432
--- npx heroku config:set PGUSER=sgrzzggi
-
-
 DROP TABLE IF EXISTS events;
 DROP TABLE IF EXISTS museums;
 DROP TABLE IF EXISTS activities;

@@ -121,7 +121,7 @@
 #logo,
 #logo1 {
   font-family: "Fontname";
-  color: white;
+  color: white !important;
   font-size: 36px !important;
 }
 

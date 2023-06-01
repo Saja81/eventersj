@@ -20,7 +20,11 @@ const HamburgerMenu = () => {
       <Row id="headerrow">
         <Col>
           <div className="containerlogo">
-            {isLogoVisible && <p id="logo1">Eventer</p>}
+            {isLogoVisible && (
+              <Link to="/" id="logo1">
+                Eventer
+              </Link>
+            )}
           </div>
         </Col>
 
