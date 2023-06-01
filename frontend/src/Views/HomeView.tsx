@@ -54,7 +54,7 @@ function HomeView() {
               <Link to="/eventlist">Upptäck alla event</Link>
             </PrimaryButton>
 
-            <SecondaryButton>Logga in</SecondaryButton>
+            <SecondaryButton><Link to="/login">Logga in</Link></SecondaryButton>
           </div>
         </div>
         <div>
