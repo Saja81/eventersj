@@ -96,6 +96,21 @@ app.get(
     }
   }
 );
+// postanrop tillagts av Sandra
+app.post("/signup", async (request: Request, response: Response, next:NextFunction) => {
+  const { name, email, password } = request.body;
+
+  try {
+    const { rows } = await client.query(
+      "INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *", [name, email, password]
+    );
+
+    const newUser = rows[0];
+    response.status(201).send(newUser);
+  } catch (error) {
+    response.status(500).send(error);
+  }
+});
 
 app.listen(port, () => {
   console.log("Redo på " + port);

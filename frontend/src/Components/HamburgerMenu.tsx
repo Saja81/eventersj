@@ -79,6 +79,10 @@ const HamburgerMenu = () => {
                   <li className="NavBar-link">
                     <Link to="/signup">Skapa ett konto</Link>
                   </li>
+
+                  <li className="NavBar-link">
+                    <Link to="/profile">Mina favoritevent</Link>
+                  </li>
                 </ul>
               </Row>
             </nav>

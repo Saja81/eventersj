@@ -24,13 +24,19 @@ export interface Openhours {
   sunday: string;
 }
 
-function EventView() {
+function EventView({
+  handleFavouriteEvent,
+}: {
+  handleFavouriteEvent: (event: string) => void;
+}) {
   const [event, setEvent] = useState<Result>(),
     [isRotated, setIsRotated] = useState(false),
     [hours, setHours] = useState<Openhours>(),
     [currentHours, setCurrentHours] = useState<string>(""),
     [hasOpenHours, setHasOpenHours] = useState(false),
     [showAllDates, setShowAllDates] = useState(false),
+    [eventName, setEventName] = useState<string>(""),
+    // ovan rad tillagd av Sandra
     [isStarClicked, setIsStarClicked] = useState(false),
     currentDay = new Date().getDay(),
     currentWeekday = [
@@ -81,13 +87,24 @@ function EventView() {
   }, [currentHours]);
 
   function handleClick() {
+    if (!event) {
+      return;
+    }
     setIsRotated(!isRotated);
     setShowAllDates(!showAllDates);
   }
-
+  // -----Funktion uppdaterad av Sandra---------------
   function handleStarClick() {
+    if (!event) {
+      return;
+    }
     setIsStarClicked(!isStarClicked);
+    if (!isStarClicked) {
+      setEventName(event.name || "");
+      handleFavouriteEvent(event.name || "");
+    }
   }
+  // -------------------------
 
   return (
     <main>

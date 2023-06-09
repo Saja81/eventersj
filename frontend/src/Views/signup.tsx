@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
-import {Link} from "react-router-dom";
-import './signup.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./signup.css";
 
 const SignupPage: React.FC = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
   };
-
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -21,22 +20,52 @@ const SignupPage: React.FC = () => {
     setPassword(event.target.value);
   };
 
-  const handleConfirmPasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleConfirmPasswordChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setConfirmPassword(event.target.value);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // Perform signup validation or API call here
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Confirm Password:', confirmPassword);
+
+    // ----------------Funktion uppdaterad av Sandra för att spara inlogg i backend
+
+    const user = {
+      name,
+      email,
+      password,
+    };
+
+    try {
+      const response = await fetch("/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+
+      if (response.ok) {
+        console.log("Konto skapades");
+      } else {
+        console.log("Skapande av konto misslyckades");
+      }
+    } catch (error) {
+      // Hantera fel
+    }
+
+    // --------------------
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Password:", password);
+    console.log("Confirm Password:", confirmPassword);
     // Reset form fields
-    setName('');
-    setEmail('');
-    setPassword('');
-    setConfirmPassword('');
+    setName("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
   };
 
   return (
@@ -59,7 +88,7 @@ const SignupPage: React.FC = () => {
             id="email"
             value={email}
             onChange={handleEmailChange}
-            placeholder='exempel@mail.com'
+            placeholder="exempel@mail.com"
           />
         </div>
         <div className="form-group">
@@ -69,7 +98,7 @@ const SignupPage: React.FC = () => {
             id="password"
             value={password}
             onChange={handlePasswordChange}
-            placeholder='******'
+            placeholder="******"
           />
         </div>
         <div className="form-group">
@@ -79,16 +108,15 @@ const SignupPage: React.FC = () => {
             id="confirmPassword"
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
-            placeholder='******'
+            placeholder="******"
           />
         </div>
         <button type="submit">Skapa ett konto</button>
-        <div className='login'>
-        <p>eller</p>
-      <Link to="/login">Logga in</Link>
-      </div>
+        <div className="login">
+          <p>eller</p>
+          <Link to="/login">Logga in</Link>
+        </div>
       </form>
-
     </div>
   );
 };

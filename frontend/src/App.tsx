@@ -5,7 +5,7 @@ import HomeView from "../src/Views/HomeView";
 import ListView from "./Views/ListView";
 import EventView from "./Views/EventView";
 import { useFetchEvents, Result } from "./useFetch";
-import { useMemo, useState } from "react";
+import { SetStateAction, useMemo, useState } from "react";
 import { SomeContext } from "./SomeContext";
 import LoginPage from "./Views/Login";
 import SignupPage from "./Views/signup";
@@ -39,15 +39,29 @@ function App() {
     }
   }, [eventResult]);
 
+  // --------------------------------------- Nedan tillagt av Sandra
+  const [favouriteEventName, setFavouriteEventName] = useState("");
+
+  const handleFavouriteEvent = (eventName: SetStateAction<string>) => {
+    setFavouriteEventName(eventName);
+  };
+  // ----------------------------------------
+
   const router = createHashRouter([
     {
       children: [
         { element: <HomeView />, path: "/" },
         { element: <ListView />, path: "/eventlist" },
-        { element: <EventView />, path: "/eventlist/:eventId" },
+        {
+          element: <EventView handleFavouriteEvent={handleFavouriteEvent} />,
+          path: "/eventlist/:eventId",
+        },
         { element: <LoginPage />, path: "/login" },
         { element: <SignupPage />, path: "/signup" },
-        { element: <ProfileView />, path: "/profile" },
+        {
+          element: <ProfileView favouriteEventName={favouriteEventName} />,
+          path: "/profile",
+        },
       ],
       element: <Root />,
     },
