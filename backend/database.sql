@@ -88,11 +88,11 @@ INSERT INTO openhours (event_id, monday, tuesday, wednesday, thursday, friday, s
 INSERT INTO openhours (event_id, monday, tuesday, wednesday, thursday, friday, saturday, sunday) VALUES (11, 'Stängt', '11.00-18.00', '11.00-18.00', '11.00-20.00', '11.00-17.00', '11.00-17.00', '11.00-17.00');
 
 
- CREATE TABLE users (
-  id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL,
-  email TEXT UNIQUE NOT NULL,
-  password TEXT NOT NULL);
+CREATE TABLE users (
+id SERIAL PRIMARY KEY,
+name TEXT NOT NULL,
+email TEXT UNIQUE NOT NULL,
+password TEXT NOT NULL);
 
 CREATE TABLE favorites (
   user_id INTEGER,
