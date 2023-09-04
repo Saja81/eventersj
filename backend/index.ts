@@ -112,6 +112,45 @@ app.post("/signup", async (request: Request, response: Response, next:NextFuncti
   }
 });
 
+// ...
+
+// Skapa en POST-endpunkt för inloggning (uppdaerad 20230822)
+app.post("/login", async (request: Request, response: Response, next: NextFunction) => {
+  const { username, password } = request.body;
+
+  try {
+    // Hämta användaruppgifter från databasen baserat på användarnamn (e-post)
+    const { rows } = await client.query(
+      "SELECT * FROM users WHERE email = $1",
+      [username]
+    );
+
+    if (rows.length === 0) {
+      // Användaren hittades inte
+      return response.status(401).json({ message: "Inloggningsuppgifterna är felaktiga." });
+    }
+
+    const user = rows[0];
+
+    // Jämför lösenordet med det som finns i databasen
+    if (user.password !== password) {
+      return response.status(401).json({ message: "Inloggningsuppgifterna är felaktiga." });
+    }
+
+    // Skapa och utfärda en autentiseringstoken (du bör använda en autentiseringsbibliotek för detta)
+    // Till exempel: const token = createAuthToken(user.id);
+
+    // Skicka en framgångssignal med autentiseringstoken till frontend
+    return response.status(200).json({ message: "Inloggningen lyckades!" });
+
+  } catch (error) {
+    response.status(500).json({ message: "Ett fel uppstod vid inloggning." });
+  }
+});
+
+// ...
+
+
 app.listen(port, () => {
   console.log("Redo på " + port);
 });

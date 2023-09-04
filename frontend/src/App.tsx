@@ -42,8 +42,8 @@ function App() {
   // --------------------------------------- Nedan tillagt av Sandra
   const [favouriteEventName, setFavouriteEventName] = useState("");
 
-  const handleFavouriteEvent = (eventName: SetStateAction<string>) => {
-    setFavouriteEventName(eventName);
+  const handleFavouriteEvent = (event: Result) => {
+    setFavouriteEventName(event.name || "");
   };
   // ----------------------------------------
 
@@ -59,7 +59,7 @@ function App() {
         { element: <LoginPage />, path: "/login" },
         { element: <SignupPage />, path: "/signup" },
         {
-          element: <ProfileView favouriteEventName={favouriteEventName} />,
+          element: <ProfileView />,
           path: "/profile",
         },
       ],

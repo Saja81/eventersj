@@ -27,7 +27,7 @@ export interface Openhours {
 function EventView({
   handleFavouriteEvent,
 }: {
-  handleFavouriteEvent: (event: string) => void;
+  handleFavouriteEvent: (event: Result) => void;
 }) {
   const [event, setEvent] = useState<Result>(),
     [isRotated, setIsRotated] = useState(false),
@@ -94,6 +94,13 @@ function EventView({
     setShowAllDates(!showAllDates);
   }
   // -----Funktion uppdaterad av Sandra---------------
+  function saveFavoriteEventToLocal(event: Result) {
+    const favoriteEvents = JSON.parse(
+      localStorage.getItem("favoriteEvents") || "[]"
+    );
+    favoriteEvents.push(event);
+    localStorage.setItem("favoriteEvents", JSON.stringify(favoriteEvents));
+  }
   function handleStarClick() {
     if (!event) {
       return;
@@ -101,9 +108,11 @@ function EventView({
     setIsStarClicked(!isStarClicked);
     if (!isStarClicked) {
       setEventName(event.name || "");
-      handleFavouriteEvent(event.name || "");
+      handleFavouriteEvent(event);
+      saveFavoriteEventToLocal(event);
     }
   }
+
   // -------------------------
 
   return (

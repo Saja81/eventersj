@@ -36,7 +36,9 @@ Jag har fortsatt att skapa en funktion för att favorisera events. Därefter har
 Jag har skapat ett eget respitory på Github och har börjat lägga upp projektet på render men har stött på problem. Jag har försökt lösa problemet några timmar men kommer inte vidare och har därför valt att lämna det för att fokusera på rapporten.
 
 Fortsatt arbete:
-Jag kommer att jobba vidare med kod (databas) samt koppla ihop personligt konto med mina favoriter. Dätefter kommer jag att försöka lösa problemet med Render. I skrivandets stund kommer jag att lämna in det jag har så här långt och därefter komplettera.
+Jag kommer att jobba vidare med kod (databas) samt koppla ihop personligt konto med mina favoriter.
+
+<mark style="background-color: red;">Uppdatering: Jag har lagt in en tabell i databasen för att kunna skapa nya konton. Jag har även fått upp mitt projekt på render. Se adress nedan.</mark>
 
 ### Reflektioner
 
@@ -57,6 +59,8 @@ Ds.
 ### Länk till projektet
 
 Då jag ej har lyckats publicera mitt eget projekt, därför länkar jag här till gruppens render: https://eventer.onrender.com/
+
+<mark style="background-color: red;">Uppdatering: Jag har nu fått upp mitt projekt på render: https://eventernew.onrender.com/</mark>
 
 Och därefter till min personliga Github med mina kompletteringar:
 https://github.com/Saja81/eventersj

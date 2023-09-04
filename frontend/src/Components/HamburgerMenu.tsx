@@ -81,7 +81,7 @@ const HamburgerMenu = () => {
                   </li>
 
                   <li className="NavBar-link">
-                    <Link to="/profile">Mina favoritevent</Link>
+                    <Link to="/profile">Mitt konto</Link>
                   </li>
                 </ul>
               </Row>
