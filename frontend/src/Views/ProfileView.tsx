@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import { Result } from "../useFetch";
 
 function ProfileView() {
-  const location = useLocation();
-  const { username } = location.state;
+  // const location = useLocation();
+  // const { username } = location.state;
   const [favoriteEvents, setFavoriteEvents] = useState<Result[]>([]);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function ProfileView() {
 
   return (
     <div className="main-divs">
-      <h3>Hej {username}</h3>
+      <h3>Hej</h3>
       <h4>Dina favoritevent:</h4>
       <ul>
         {favoriteEvents.map((event) => (
